@@ -41,7 +41,8 @@
 *.dwo
 
 # Coverity
-idir
-.codesight
+idir/
+.codesight/
 coverity.all.yaml
+.vscode/
 
