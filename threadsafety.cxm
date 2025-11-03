@@ -1,0 +1,24 @@
+include `C/C++`;
+
+checker {
+    name = "DC.THREAD_UNSAFE_FUNCTION";
+    
+    reports = for call in globalset allFunctionCode % functionCall {
+        .calledFunction.identifier == Regex( "^(asc|c|gm|local)time$" );
+    } :
+    {
+        
+        events = [
+            {
+                description = "Calling " + call.calledFunction;
+                location    = call.location;
+                kind        = `MainEvent`;
+            },
+            {
+                description = "Replace with threadsave function " + call.calledExpression + "_r";
+                location    = call.location;
+                kind        = `Remediation`;
+            }
+        ];
+    };
+};

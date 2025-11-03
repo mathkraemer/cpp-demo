@@ -39,3 +39,9 @@
 
 # debug information files
 *.dwo
+
+# Coverity
+idir
+.codesight
+coverity.all.yaml
+

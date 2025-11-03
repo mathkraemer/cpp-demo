@@ -1,0 +1,30 @@
+capture:
+  build:
+    clean-command: rm a.out
+    build-command: ./build.sh
+
+analyze:
+  aggressiveness-level: low
+  callgraph-metrics: true
+  c-cpp-fnptr: true
+  c-cpp-virtual: true
+  constraint-fpp: false
+
+  checkers:
+    all: true
+
+    codexm:
+    - threadsafety.cxm
+
+
+  # coding-standards:
+  #   misracpp2023:
+  #     pre-canned: all
+
+
+
+commit:
+  connect:
+    url: http://connect:6080
+    project: C++ Demo
+    stream: cpp-demo-default
